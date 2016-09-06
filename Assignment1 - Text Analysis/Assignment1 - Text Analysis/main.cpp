@@ -2,11 +2,16 @@
 #include <fstream>
 #include <string>
 #include "SampleText.h"
+#include "PartOfSpeech.h"
 
 using namespace std;
 
 int main()
 {
+	// load the parts of speech library
+	ifstream posLibraryFile("pos.txt");
+	PartOfSpeech posLibrary = PartOfSpeech(posLibraryFile);
+
 	// load the text file into a wrapper class
 	ifstream sampleTextFile ("sampletext.txt");
 	SampleText text = SampleText(sampleTextFile);

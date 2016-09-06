@@ -29,6 +29,9 @@ private:
 	// check if a character is a consonant
 	bool IsConsonant(const char c);
 
+	// converts all characters in a given string to lowercase
+	string ToLower(string word);
+
 protected:
 	string word;
 	int syllables;

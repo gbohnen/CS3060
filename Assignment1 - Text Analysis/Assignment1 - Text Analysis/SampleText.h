@@ -23,8 +23,6 @@ public:
 	void CheckLongestWord(Word str);
 
 private:
-	// converts all characters in a given string to lowercase
-	string ToLower(string word);
 
 protected:
 	string line;					// the current line

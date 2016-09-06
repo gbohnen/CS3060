@@ -57,22 +57,3 @@ void SampleText::CheckLongestWord(Word str)
 	if (str.Text().length() > longestWord.Text().length())
 		longestWord = str;
 };
-
-// converts all characters to lowercase - possibly uses too much memory, or leaks. needs debugging
-string SampleText::ToLower(string word) 
-{
-	int i = 0;
-	char c;
-	string newWord = "";
-
-	// iterate the word and tolower each character
-	while (word[i])
-	{
-		c = word[i];
-		c = tolower(c);
-		newWord = newWord + c;
-		i++;
-	}
-
-	return newWord;
-};

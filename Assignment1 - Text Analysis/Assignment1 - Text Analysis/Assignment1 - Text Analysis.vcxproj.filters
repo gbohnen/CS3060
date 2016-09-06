@@ -32,5 +32,8 @@
     <ClInclude Include="Word.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PartOfSpeech.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

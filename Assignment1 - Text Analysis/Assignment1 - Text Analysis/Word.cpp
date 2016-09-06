@@ -72,3 +72,22 @@ bool Word::IsConsonant(const char c)
 {
 	return !IsVowel(c);
 };
+
+// converts all characters to lowercase - possibly uses too much memory, or leaks. needs debugging
+string Word::ToLower(string word)
+{
+	int i = 0;
+	char c;
+	string newWord = "";
+
+	// iterate the word and tolower each character
+	while (word[i])
+	{
+		c = word[i];
+		c = tolower(c);
+		newWord = newWord + c;
+		i++;
+	}
+
+	return newWord;
+};
