@@ -9,7 +9,7 @@ class Word
 {
 public:
 	// default constructor
-	Word(string str, int syll, string pos) : word{ str }, syllables { syll }, partOfSpeech{ pos };
+	Word(string str);
 
 	// accessor methods
 	string Text();
