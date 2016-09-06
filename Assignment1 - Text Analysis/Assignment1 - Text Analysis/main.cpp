@@ -12,6 +12,6 @@ int main()
 	SampleText text = SampleText(sampleTextFile);
 
 	// print the longest word
-	cout << "The longest word found is: \'" << text.GetLongestWord().first << "\'." << endl;
-	cout << "'" << text.GetLongestWord().first << "'" << " has " << text.GetLongestWord().second << " syllables. Isn't that great?" << endl;
+	cout << "The longest word found is: \'" << text.GetLongestWord().Text() << "\'." << endl;
+	cout << "'" << text.GetLongestWord().Text() << "'" << " has " << text.GetLongestWord().Syllables() << " syllables. Isn't that great?" << endl;
 };

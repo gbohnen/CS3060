@@ -17,11 +17,17 @@ public:
 	string PartOfSpeech();
 
 private:
-	// find the number of syllables
+	// get the number of syllables in a given word
 	int GetSyllables();
 
 	// find the part of speech
 	string GetPOS();
+
+	// check if a character is a vowel
+	bool IsVowel(const char c);
+
+	// check if a character is a consonant
+	bool IsConsonant(const char c);
 
 protected:
 	string word;

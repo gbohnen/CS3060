@@ -17,28 +17,19 @@ public:
 	SampleText(ifstream& file);
 
 	// returns the longest word found
-	pair<string, int> GetLongestWord();
+	Word GetLongestWord();
 
 	// checks for longest word
-	void CheckLongestWord(pair<string, int> str);
+	void CheckLongestWord(Word str);
 
 private:
-	// check if a character is a vowel
-	bool IsVowel(const char c);
-
-	// check if a character is a consonant
-	bool IsConsonant(const char c);
-
-	// get the number of syllables in a given word
-	int GetSyllables(const string& word);
-
 	// converts all characters in a given string to lowercase
 	string ToLower(string word);
 
 protected:
 	string line;					// the current line
-	pair<string, int> longestWord = pair<string, int>("", 0);		// the longest word found
-	vector<pair<string, int>> words;			// vector array that will hold all the words from the text document
+	Word longestWord = Word("");		// the longest word found
+	vector<Word> words;			// vector array that will hold all the words from the text document
 
 };
 

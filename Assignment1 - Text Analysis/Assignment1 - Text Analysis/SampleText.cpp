@@ -19,7 +19,7 @@ SampleText::SampleText(ifstream& file)
 				size_t pos = line.find_first_of(",.?-:/ \n");
 
 				// grab the substring and convert to lowercase
-				pair<string, int> word = pair<string, int>(line.substr(0, pos), GetSyllables(line.substr(0, pos)));
+				Word word = Word(line.substr(0, pos));
 				//word = ToLower(word); deprecated, uses too much memory
 
 				// add the word
@@ -29,7 +29,7 @@ SampleText::SampleText(ifstream& file)
 				CheckLongestWord(word);
 
 				// check to see if it's the last word, and remove it if that's the case
-				if (line == word.first)
+				if (line == word.Text())
 					line.erase(0, line.length());
 
 				// remove the current word
@@ -41,37 +41,21 @@ SampleText::SampleText(ifstream& file)
 	// test display the first hundred lines
 	for (int i = 0; i < 100; i++)
 	{
-		cout << words[i].first << " " << words[i].second << endl;
+		cout << words[i].Text() << " " << words[i].Syllables() << endl;
 	}
 };
 
 // return the longest word
-pair<string, int> SampleText::GetLongestWord()
+Word SampleText::GetLongestWord()
 {
 	return longestWord;
 }
 
 // compare current word to the previous longest word
-void SampleText::CheckLongestWord(pair<string, int> str)
+void SampleText::CheckLongestWord(Word str)
 {
-	if (str.first.length() > longestWord.first.length())
+	if (str.Text().length() > longestWord.Text().length())
 		longestWord = str;
-};
-
-// check if a given character is a vowel
-bool SampleText::IsVowel(const char c)
-{
-	if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'y' ||
-		c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'Y')
-		return true;
-	else
-		return false;
-};
-
-// check if the given character is a consonant
-bool SampleText::IsConsonant(const char c)
-{
-	return !IsVowel(c);
 };
 
 // converts all characters to lowercase - possibly uses too much memory, or leaks. needs debugging
@@ -91,31 +75,4 @@ string SampleText::ToLower(string word)
 	}
 
 	return newWord;
-};
-
-// returns the approximate number of syllables in a word
-int SampleText::GetSyllables(const string& word)
-{
-	// count the number of letter type changes
-	int count = 1;
-	bool characterVowelState = false;
-
-	for (const char& c : word)
-	{
-		// protect first character case
-		if (c == word[0])
-		{
-			characterVowelState = IsVowel(c);
-		}
-
-		// check all subsequent cases
-		if (IsVowel(c) != characterVowelState)
-		{
-			count++;
-			characterVowelState = IsVowel(c);			
-		}
-	}
-
-	// return half the number of vowel / consonant switches
-	return count / 2;
 };
