@@ -35,6 +35,20 @@ void SampleText::Analyze(ifstream& file, PartOfSpeech& dictionary)
 				CheckShortestWord(word);
 				UpdateCounts(word);
 
+				// update average word length
+				if (words.size() > 1)
+					avWordLength = ((avWordLength * (words.size() - 1)) + word.Text().length()) / words.size();
+				else
+					avWordLength = (float)word.Text().length();
+
+				// updates average syllables
+				if (word.Syllables() > 0)
+				{				
+					if (words.size() > 1)
+						avSyllables = ((avSyllables * (words.size() - 1)) + word.Syllables()) / words.size();
+					else
+						avSyllables = (float)word.Syllables();
+				}
 				// check to see if it's the last word, and remove it if that's the case
 				if (line == word.Text())
 					line.erase(0, line.length());
@@ -72,6 +86,10 @@ void SampleText::DisplayPOSCounts()
 	cout << "Adverbs:\t"		<< advCount << endl;
 	cout << "Prepositions:\t" << prepCount << endl;
 	cout << "Unknown:\t"		<< unknCount << endl;
+
+	cout << endl;
+	cout << "The average word is " << avWordLength << " characters long." << endl;
+	cout << "The average syllables per word is " << avSyllables << " syllables." << endl;
 }
 
 // compare current word to the previous longest word

@@ -22,14 +22,18 @@ int main()
 	text.Analyze(sampleTextFile, posLibrary);
 
 	// print the longest word
+	cout << endl;
 	cout << "The longest word found is: \'" << text.GetLongestWord().Text() << "\'." << endl;
 	cout << "'" << text.GetLongestWord().Text() << "'" << " has approx. " << text.GetLongestWord().Syllables() << " syllables, " 
 		<< " and is a(n) " << text.GetLongestWord().PartOfSpeech() << "." << endl;
 
 	// print the shortest word
+	cout << endl;
 	cout << "The shortest word found is: '" << text.GetShortestWord().Text() << "'." << endl;
 	cout << "'" << text.GetShortestWord().Text() << "'" << " has approx. " << text.GetShortestWord().Syllables() << " syllables, "
 		<< " and is a(n) " << text.GetShortestWord().PartOfSpeech() << "." << endl;
 
+	// display various metrics
+	cout << endl;
 	text.DisplayPOSCounts();
 };

@@ -43,6 +43,9 @@ protected:
 	int advCount = 0;
 	int prepCount = 0;
 	int unknCount = 0;
+
+	float avWordLength = 0;
+	float avSyllables = 0;
 };
 
 #endif

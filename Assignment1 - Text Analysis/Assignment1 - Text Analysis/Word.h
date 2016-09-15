@@ -2,6 +2,7 @@
 #define WORD_H
 
 #include <string>
+#include <cctype>
 
 using namespace std;
 
