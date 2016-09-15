@@ -11,10 +11,10 @@ class PartOfSpeech
 {
 public:
 	// default constructor
-	PartOfSpeech(ifstream& file);
+	PartOfSpeech(const ifstream& file);
 
 private:
-	string GetValue(string& key);
+	string GetValue(const string& key);
 
 protected:
 	map<string, string> dictionary;

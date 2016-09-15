@@ -24,6 +24,9 @@
     <ClCompile Include="Word.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PartOfSpeech.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SampleText.h">

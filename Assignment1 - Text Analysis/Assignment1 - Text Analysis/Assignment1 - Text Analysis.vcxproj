@@ -114,6 +114,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PartOfSpeech.cpp" />
     <ClCompile Include="SampleText.cpp" />
     <ClCompile Include="Word.cpp" />
   </ItemGroup>
