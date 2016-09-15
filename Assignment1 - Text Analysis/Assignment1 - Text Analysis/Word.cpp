@@ -1,4 +1,5 @@
 #include "Word.h"
+#include "PartOfSpeech.h"
 
 using namespace std;
 
@@ -6,7 +7,7 @@ using namespace std;
 Word::Word(string str) : word{ str }
 {
 	syllables = GetSyllables();
-	partOfSpeech = GetPOS();
+	//ToLower();
 };
 
 // accessor methods
@@ -50,11 +51,11 @@ int Word::GetSyllables()
 	return count / 2;
 };
 
-// find the part of speech
-string Word::GetPOS()
+// set the part of speech
+string Word::SetPOS(const string& key)
 {
-
-	return "";
+	partOfSpeech = key;
+	return partOfSpeech;
 };
 
 // check if a given character is a vowel
@@ -74,20 +75,23 @@ bool Word::IsConsonant(const char c)
 };
 
 // converts all characters to lowercase - possibly uses too much memory, or leaks. needs debugging
-string Word::ToLower(string word)
+void Word::ToLower()
 {
-	int i = 0;
-	char c;
-	string newWord = "";
+	for (int i = 0; word[i]; i++)
+		word[i] = tolower(word[i]);
 
-	// iterate the word and tolower each character
-	while (word[i])
-	{
-		c = word[i];
-		c = tolower(c);
-		newWord = newWord + c;
-		i++;
-	}
+	//int i = 0;
+	//char c;
+	//string newWord = "";
 
-	return newWord;
+	//// iterate the word and tolower each character
+	//while (word[i])
+	//{
+	//	c = word[i];
+	//	c = tolower(c);
+	//	newWord = newWord + c;
+	//	i++;
+	//}
+
+	//return newWord;
 };

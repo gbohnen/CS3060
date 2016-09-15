@@ -16,12 +16,12 @@ public:
 	int Syllables();
 	string PartOfSpeech();
 
+	// set the part of speech
+	string SetPOS(const string& key);
+
 private:
 	// get the number of syllables in a given word
 	int GetSyllables();
-
-	// find the part of speech
-	string GetPOS();
 
 	// check if a character is a vowel
 	bool IsVowel(const char c);
@@ -30,7 +30,7 @@ private:
 	bool IsConsonant(const char c);
 
 	// converts all characters in a given string to lowercase
-	string ToLower(string word);
+	void ToLower();
 
 protected:
 	string word;

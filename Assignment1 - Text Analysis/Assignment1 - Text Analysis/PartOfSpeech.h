@@ -4,20 +4,26 @@
 #include <utility>
 #include <string>
 #include <map>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
+
+enum POS { NOUN, VERB, ADJECTIVE, ADVERB, ARTICLE, INTERJECTION, PREPOSITION, UNKNOWN };
 
 class PartOfSpeech
 {
 public:
 	// default constructor
-	PartOfSpeech(const ifstream& file);
+	PartOfSpeech(ifstream& file);
 
-private:
 	string GetValue(const string& key);
+private:
+	string ParsePOS(const string& part);
 
 protected:
 	map<string, string> dictionary;
+	string line;
 };
 
 #endif
