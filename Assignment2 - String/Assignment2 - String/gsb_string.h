@@ -31,7 +31,7 @@ namespace gsb
 		operator const char*() const;
 
 		// length of the string
-		int length();
+		int Length();
 
 
 	private:
@@ -39,10 +39,8 @@ namespace gsb
 		void InitData(const char* d);
 		void FreeData();
 	protected:
-	
-		const char* data = nullptr;			// string data
-
-
+		int length = 0;
+		char* data = nullptr;			// string data
 	};
 }
 
