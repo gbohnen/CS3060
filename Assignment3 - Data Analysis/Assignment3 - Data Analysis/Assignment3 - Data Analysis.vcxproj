@@ -82,6 +82,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -112,7 +115,10 @@
   <ItemGroup>
     <ClCompile Include="LogField.cpp" />
     <ClCompile Include="LogFieldAddr.cpp" />
+    <ClCompile Include="LogFieldBool.cpp" />
     <ClCompile Include="LogFieldCount.cpp" />
+    <ClCompile Include="LogFieldInterval.cpp" />
+    <ClCompile Include="LogFieldSetStr.cpp" />
     <ClCompile Include="LogFieldTime.cpp" />
     <ClCompile Include="LogFile.cpp" />
     <ClCompile Include="LogRecord.cpp" />
@@ -120,10 +126,13 @@
     <ClCompile Include="LogFieldPort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LogFieldBool.h" />
     <ClInclude Include="LogField.hpp" />
     <ClInclude Include="LogFieldAddr.hpp" />
     <ClInclude Include="LogFieldCount.hpp" />
+    <ClInclude Include="LogFieldInterval.h" />
     <ClInclude Include="LogFieldPort.h" />
+    <ClInclude Include="LogFieldSetStr.h" />
     <ClInclude Include="LogFieldTime.hpp" />
     <ClInclude Include="LogFile.hpp" />
     <ClInclude Include="LogRecord.hpp" />

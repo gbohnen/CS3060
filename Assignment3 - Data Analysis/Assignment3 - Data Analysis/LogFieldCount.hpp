@@ -10,5 +10,13 @@
 #define LogFieldCount_hpp
 
 #include <stdio.h>
+#include "LogField.hpp"
 
+class LogFieldCount : public LogField
+{
+public:
+	LogFieldCount(const std::string s);
+
+	virtual const std::string toString() const;
+};
 #endif /* LogFieldCount_hpp */

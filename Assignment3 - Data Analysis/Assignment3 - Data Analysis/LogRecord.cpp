@@ -11,6 +11,10 @@
 #include "LogFieldTime.hpp"
 #include "LogFieldAddr.hpp"
 #include "LogFieldPort.h"
+#include "LogFieldInterval.h"
+#include "LogFieldCount.hpp"
+#include "LogFieldBool.h"
+#include "LogFieldSetStr.h"
 #include <typeinfo>
 
 LogRecord::LogRecord(const std::string &line)
@@ -53,7 +57,71 @@ LogRecord::LogRecord(const std::string &line)
 	iss >> field;
 
 
-	// service duration
+	// service
+	iss >> field;
+	fields.push_back(new LogField(field));
+
+	// duration
+	iss >> field;
+	fields.push_back(new LogFieldInterval(field));
+
+	// orig_bytes
+	iss >> field;
+	fields.push_back(new LogFieldCount(field));
+
+	// resp_bytes
+	iss >> field;
+	fields.push_back(new LogFieldCount(field));
+
+	// conn_state
+	iss >> field;
+	fields.push_back(new LogField(field));
+
+	// local_orig
+	iss >> field;
+	fields.push_back(new LogFieldBool(field));
+
+	// local_resp
+	iss >> field;
+	fields.push_back(new LogFieldBool(field));
+
+	// missed_bytes
+	iss >> field;
+	fields.push_back(new LogFieldCount(field));
+
+	// history
+	iss >> field;
+	fields.push_back(new LogField(field));
+
+	// orig_pkts
+	iss >> field;
+	fields.push_back(new LogFieldCount(field));
+
+	// orig_ip_bytes
+	iss >> field;
+	fields.push_back(new LogFieldCount(field));
+
+	// resp_pkts
+	iss >> field;
+	fields.push_back(new LogFieldCount(field));
+
+	// resp isp_ bytes
+	iss >> field;
+	fields.push_back(new LogFieldCount(field));
+
+	// tunnel_parents
+	iss >> field;
+	fields.push_back(new LogFieldSetStr(field));
+
+	// orig_cc
+	iss >> field;
+	fields.push_back(new LogField(field));
+
+	// resp_cc
+	iss >> field;
+	fields.push_back(new LogField(field));
+
+	// sensorname
 	iss >> field;
 	fields.push_back(new LogField(field));
     

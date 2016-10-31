@@ -7,9 +7,14 @@
 //
 
 #include "LogFieldCount.hpp"
-#include "LogField.hpp"
 
-class LogFieldCount : public LogField
+
+LogFieldCount::LogFieldCount(const std::string s) : LogField(s)
 {
-    
-};
+
+}
+
+const std::string LogFieldCount::toString() const
+{
+	return "Count: " + str;
+}
